@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+        .songError{
+            font-family: "Adobe Song Std L";
+            font-size: 20px;
+            opacity: 0.8;
+            background : #ce0a0a;
+            color : #7a0404;
+        }
+
+        .gothicaCheck{
+            font-family: "Yu Gothic Light";
+            font-size: 12px;
+            opacity: 0.9;
+            background: #15bf20;
+            color :#036809;
+        }
+        .gothicaSelect{
+            font-family: "Yu Gothic Light";
+            font-size: 12px;
+            opacity: 0.9;
+            background: #cecece;
+            color :#38330f;
+        }
+        .lista{
+            padding: 10px 10px 10px 10px;
+            border-radius: 10px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+<div id ="Jey">Alfafa</div>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li class="listagem"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<script>
+
+
+    // LET substitui Var
+    let a = $("#Jey").text('Listagem');
+    //var a = $("#Jey").text('Listagem');
+
+    $('ul').css({'list-style':'none', 'padding':'0px'});
+
+    $('li').addClass('lista');
+    //$('li').css({'padding':'10px 10px 10px 10px','border-radius':'10px'});
+
+    $('li:odd').text('par: Error').addClass('songError');
+    //$('li:odd').text('par: Error').css({'background':'#ce0a0a','color':'#7a0404'}).addClass('song');
+
+
+    $('li:even').text('impar: Check').addClass('gothicaCheck');
+    //$('li:even').text('impar: Check').css({'background':'#15bf20','color':'#036809'}).addClass('gothica');
+
+
+    let listaHover = function () {
+        $(this).removeClass('songError');
+        $(this).addClass('gothicaSelect');
+    }
+
+    let listahoverOut = function () {
+        $(this).removeClass('gothicaSelect');
+        $(this).addClass('songError');
+    }
+    $('li').hover(listaHover,listahoverOut)
+/*
+    $('li').hover(function () {
+        $(this).removeClass('songError');
+        $(this).addClass('gothicaSelect');
+        $(this).text('Selecionado');
+    });
+    $('li').hoverOut(function () {
+        $(this).removeClass('gothicaSelect');
+        $(this).addClass('songError');
+        $(this).text('Não Selecionado');
+    });
+*/
+    let hide = function () {
+        $(this).hide(10000);
+    }
+    let show = function () {
+        $(this).show('fold');
+    }
+
+    $('.listagem').hover(hide,show);
+
+
+
+</script>
+</body>
+</html>
